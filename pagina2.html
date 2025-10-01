@@ -5,53 +5,84 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Sejam todos bem-vindos à Operação Hariposa!</title>
   <style>
-    body,html{
-      height:100%;
-      margin:0;
-      background:#000;
-      color:#00ff66;
-      font-family:"Courier New",Courier,monospace;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:20px;
-      box-sizing:border-box;
+    body, html {
+      height: 100%;
+      margin: 0;
+      background: #000;
+      color: #00ff66;
+      font-family: "Courier New", Courier, monospace;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      box-sizing: border-box;
     }
-    .holder{
-      width:100%;
-      max-width:1000px;
-      text-align:center;
+
+    .holder {
+      width: 100%;
+      max-width: 1000px;
+      text-align: center;
     }
-    video{
-      width:100%;
-      max-height:80vh;
-      border:2px solid #00ff66;
-      border-radius:6px;
-      background:#000;
+
+    video {
+      width: 100%;
+      max-height: 80vh;
+      border: 2px solid #00ff66;
+      border-radius: 6px;
+      background: #000;
     }
-    .back{
-      display:inline-block;
-      margin-top:12px;
-      color:#00ff66;
-      text-decoration:none;
-      border:1px solid #00ff66;
-      padding:8px 12px;
-      border-radius:6px;
-      font-family:inherit;
+
+    .fade-target {
+      opacity: 0;
+      transition: opacity 1.5s ease;
+    }
+
+    .fade-in {
+      opacity: 1;
+    }
+
+    .fade-out {
+      opacity: 0;
+    }
+
+    .back {
+      display: inline-block;
+      margin-top: 12px;
+      color: #00ff66;
+      text-decoration: none;
+      border: 1px solid #00ff66;
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-family: inherit;
     }
   </style>
 </head>
 <body>
   <div class="holder">
-    <!-- substitua midia/video.mp4 pelo seu arquivo -->
     <video controls>
       <source src="midia/video1.mp4" type="video/mp4" />
       Seu navegador não suporta o elemento <code>video</code>.
     </video>
 
-    <div>
-      <a class="back" href="index.html">Voltar</a>
+    <div class="fade-target" id="fadeBtn">
+      <a class="back" href="#" onclick="voltar()">Voltar</a>
     </div>
   </div>
+
+  <script>
+    const fadeBtn = document.getElementById("fadeBtn");
+
+    window.onload = () => {
+      fadeBtn.classList.add("fade-in");
+    };
+
+    function voltar() {
+      fadeBtn.classList.remove("fade-in");
+      fadeBtn.classList.add("fade-out");
+      setTimeout(() => {
+        window.location.href = "index.html";
+      }, 1500);
+    }
+  </script>
 </body>
 </html>
