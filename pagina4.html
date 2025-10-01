@@ -46,6 +46,26 @@
     button:active {
       transform: translateY(1px);
     }
+
+    /* Responsividade para celulares */
+    @media (max-width: 600px) {
+      html, body {
+        padding: 16px;
+        justify-content: flex-start;
+      }
+
+      p {
+        font-size: 1rem;
+        text-align: left;
+        margin-bottom: 24px;
+      }
+
+      button {
+        width: 100%;
+        font-size: 1rem;
+        padding: 12px;
+      }
+    }
   </style>
 </head>
 <body>
