@@ -5,79 +5,109 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Fase de Inscrição</title>
   <style>
-    :root{
+    :root {
       --green: #00ff66;
       --bg: #000;
       --font: "Courier New", Courier, monospace;
     }
-    html,body{
-      height:100%;
-      margin:0;
-      background:var(--bg);
-      color:var(--green);
-      font-family:var(--font);
+
+    html, body {
+      height: 100%;
+      margin: 0;
+      background: var(--bg);
+      color: var(--green);
+      font-family: var(--font);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      box-sizing: border-box;
     }
-    .wrap{
-      min-height:100%;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      align-items:center;
-      padding:32px;
-      box-sizing:border-box;
+
+    .holder {
+      max-width: 900px;
+      width: 100%;
+      text-align: justify;
+      line-height: 1.6;
+      font-size: 1.1rem;
     }
-    .content{
-      max-width:900px;
-      width:100%;
-      text-align:justify;
-      line-height:1.6;
-      margin-bottom:48px;
-      font-size:1.1rem;
+
+    .fade-target {
+      opacity: 0;
+      transition: opacity 1.5s ease;
     }
+
+    .fade-in {
+      opacity: 1;
+    }
+
+    .fade-out {
+      opacity: 0;
+    }
+
     form {
-      display:flex;
-      gap:12px;
-      align-items:center;
-      flex-wrap:wrap;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 32px;
     }
-    label{ font-size:1.1rem; }
-    input[type="password"]{
-      background:transparent;
-      border:0;
-      border-bottom:2px solid var(--green);
-      color:var(--green);
-      padding:8px 10px;
-      font-size:1.05rem;
-      font-family:var(--font);
-      outline:none;
-      width:260px;
+
+    label {
+      font-size: 1.1rem;
     }
-    input[type="password"]::placeholder{ color: rgba(0,255,102,0.25); }
-    button{
-      background:transparent;
-      border:1px solid var(--green);
-      color:var(--green);
-      padding:8px 14px;
-      cursor:pointer;
-      font-family:var(--font);
-      font-size:1rem;
-      border-radius:6px;
+
+    input[type="password"] {
+      background: transparent;
+      border: 0;
+      border-bottom: 2px solid var(--green);
+      color: var(--green);
+      padding: 8px 10px;
+      font-size: 1.05rem;
+      font-family: var(--font);
+      outline: none;
+      width: 260px;
     }
-    button:active{ transform:translateY(1px); }
-    .msg{ margin-top:10px; height:20px; font-size:0.95rem; color:var(--green); opacity:0.9; }
+
+    input[type="password"]::placeholder {
+      color: rgba(0, 255, 102, 0.25);
+    }
+
+    button {
+      background: transparent;
+      border: 1px solid var(--green);
+      color: var(--green);
+      padding: 8px 14px;
+      cursor: pointer;
+      font-family: var(--font);
+      font-size: 1rem;
+      border-radius: 6px;
+    }
+
+    button:active {
+      transform: translateY(1px);
+    }
+
+    .msg {
+      margin-top: 10px;
+      height: 20px;
+      font-size: 0.95rem;
+      color: var(--green);
+      opacity: 0.9;
+      text-align: center;
+    }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <div class="content">
-      <p>
-        Seja bem vindo a fase de inscrição Hariposa!
-        Fico feliz com seu interesse, isso provavelmente significa que você assim como eu busca pela mudança em Scienutopia certo? 
-        Estamos cansados de ver ano após ano tanta violência...
-        Mas fazer isso sozinho é impossível, por isso com a ajuda de cada um de vocês podemos criar algo grande, capaz de finalmente transformar essa situação para algo melhor!
-        Se você realmente deseja fazer a coisa certa, por favor digite qual a senha foi dada a vocês no aniversário...
-      </p>
-    </div>
+  <div class="holder fade-target" id="fadeBox">
+    <p>
+      Seja bem-vindo à fase de inscrição Hariposa!<br><br>
+      Fico feliz com seu interesse, isso provavelmente significa que você assim como eu busca pela mudança em Scienutopia, certo?<br>
+      Estamos cansados de ver ano após ano tanta violência...<br>
+      Mas fazer isso sozinho é impossível. Com a ajuda de cada um de vocês podemos criar algo grande, capaz de finalmente transformar essa situação para algo melhor!<br><br>
+      Se você realmente deseja fazer a coisa certa, por favor digite qual a senha foi dada a vocês no aniversário...
+    </p>
 
     <form id="loginForm" autocomplete="off" novalidate>
       <label for="senha">senha:</label>
@@ -89,27 +119,32 @@
   </div>
 
   <script>
-    // senha "oficial" — mantemos por legibilidade, mas compararemos sem diferenciar maiúsc/minúsc
     const CORRECT = "Scienutopia";
-
     const form = document.getElementById("loginForm");
     const input = document.getElementById("senha");
     const msg = document.getElementById("msg");
+    const fadeBox = document.getElementById("fadeBox");
 
-    form.addEventListener("submit", function(e){
-      e.preventDefault(); // evita reload
+    window.onload = () => {
+      fadeBox.classList.add("fade-in");
+    };
 
-      // normaliza: remove espaços nas pontas e compara em minúsculas
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+
       const valNormalized = (input.value || "").trim().toLowerCase();
       const correctNormalized = CORRECT.toLowerCase();
 
       if (valNormalized === correctNormalized) {
-        window.location.href = "pagina2.html";
+        fadeBox.classList.remove("fade-in");
+        fadeBox.classList.add("fade-out");
+        setTimeout(() => {
+          window.location.href = "pagina2.html";
+        }, 1500);
       } else {
         msg.textContent = "Senha incorreta — tente novamente.";
         input.value = "";
         input.focus();
-        // efeito visual temporário
         input.style.borderBottomColor = "#ff4d4d";
         setTimeout(() => input.style.borderBottomColor = "", 400);
       }
