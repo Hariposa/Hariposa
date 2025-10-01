@@ -97,6 +97,48 @@
       opacity: 0.9;
       text-align: center;
     }
+
+    /* Responsividade para celulares */
+    @media (max-width: 600px) {
+      html, body {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding: 16px;
+      }
+
+      .holder {
+        font-size: 1rem;
+        text-align: left;
+      }
+
+      form {
+        flex-direction: column;
+        gap: 16px;
+        align-items: stretch;
+      }
+
+      input[type="password"] {
+        width: 100%;
+        font-size: 1rem;
+      }
+
+      button {
+        width: 100%;
+        font-size: 1rem;
+        padding: 10px;
+      }
+
+      label {
+        font-size: 1rem;
+      }
+
+      .msg {
+        font-size: 0.9rem;
+        height: auto;
+        margin-top: 16px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -119,14 +161,14 @@
   </div>
 
   <script>
- const SENHAS = {
-  scienutopia: "pagina2.html",
-  saphoria: "pagina3.html",
-  hariposa: "pagina4.html",
-  crokins: "pagina5.html",
-  agata: "pagina6.html",
-  camellia: "pagina7.html" // nova senha adicionada
-};
+    const SENHAS = {
+      scienutopia: "pagina2.html",
+      saphoria: "pagina3.html",
+      hariposa: "pagina4.html",
+      crokins: "pagina5.html",
+      agata: "pagina6.html",
+      camellia: "pagina7.html"
+    };
 
     const form = document.getElementById("loginForm");
     const input = document.getElementById("senha");
