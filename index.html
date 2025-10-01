@@ -119,7 +119,15 @@
   </div>
 
   <script>
-    const CORRECT = "Scienutopia";
+ const SENHAS = {
+  scienutopia: "pagina2.html",
+  saphoria: "pagina3.html",
+  hariposa: "pagina4.html",
+  crokins: "pagina5.html",
+  agata: "pagina6.html",
+  camellia: "pagina7.html" // nova senha adicionada
+};
+
     const form = document.getElementById("loginForm");
     const input = document.getElementById("senha");
     const msg = document.getElementById("msg");
@@ -133,13 +141,12 @@
       e.preventDefault();
 
       const valNormalized = (input.value || "").trim().toLowerCase();
-      const correctNormalized = CORRECT.toLowerCase();
 
-      if (valNormalized === correctNormalized) {
+      if (valNormalized in SENHAS) {
         fadeBox.classList.remove("fade-in");
         fadeBox.classList.add("fade-out");
         setTimeout(() => {
-          window.location.href = "pagina2.html";
+          window.location.href = SENHAS[valNormalized];
         }, 1500);
       } else {
         msg.textContent = "Senha incorreta — tente novamente.";
