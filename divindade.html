@@ -31,22 +31,19 @@
       max-width: 1000px;
       width: 100%;
       text-align: center;
+      padding: 20px;
     }
 
-    .ascii {
-      white-space: pre;
-      font-size: 0.85rem;
-      line-height: 1.1;
-      margin-bottom: 32px;
-      text-align: center; /* 🔹 Centraliza o desenho */
-      display: flex;
-      justify-content: center; /* 🔹 Centraliza horizontalmente */
-      align-items: center;     /* 🔹 Garante alinhamento vertical interno */
+    .ascii img {
+      width: 380px;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 0 20px var(--green);
     }
 
     .message {
       font-size: 1.1rem;
-      margin-bottom: 24px;
+      margin: 24px 0;
       text-align: justify;
       max-width: 700px;
     }
@@ -66,7 +63,18 @@
       transform: translateY(1px);
     }
 
-    /* Responsividade para celulares */
+    .bug-text {
+      font-weight: bold;
+      color: var(--green);
+      animation: glitch 0.1s infinite;
+    }
+
+    @keyframes glitch {
+      0% { opacity: 1; }
+      50% { opacity: 0.4; }
+      100% { opacity: 1; }
+    }
+
     @media (max-width: 600px) {
       html, body {
         flex-direction: column;
@@ -75,9 +83,8 @@
         padding: 16px;
       }
 
-      .ascii {
-        font-size: 0.75rem;
-        text-align: center;
+      .ascii img {
+        width: 260px;
       }
 
       .message {
@@ -97,16 +104,27 @@
 <body>
   <div class="container">
     <div class="ascii">
-
-        AQUI É O ASCII, VULGO DESENHO DE PONTINHOS, SÓ COLAR
-        
+      <img src="midia/11-dot-art.png" alt="Imagem de Saphoria" />
     </div>
 
     <div class="message">
-      TEXTO AQUI
+      Quando eu era pequeno, me levavam para frequentar os Templos Sagrados de várias entidades. 
+      Eu nunca fui um grande fã de teologia, mas um deles me chamava a atenção: 
+      Saphoria, o Deus da <span id="bugWord" class="bug-text">SABEDORIA</span>.
     </div>
 
     <a class="back" href="index.html">Voltar</a>
   </div>
+
+  <script>
+    const bugWord = document.getElementById("bugWord");
+    const words = ["SABEDORIA", "LOUCURA"];
+    let index = 0;
+
+    setInterval(() => {
+      index = (index + 1) % words.length;
+      bugWord.textContent = words[index];
+    }, 80);
+  </script>
 </body>
 </html>
