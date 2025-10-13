@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Hariposa</title>
   <style>
+    /* teu CSS continua igual, não alterei nada */
     :root {
       --green: #00ff66;
       --bg: #000;
       --font: "Courier New", Courier, monospace;
     }
-
     html, body {
       height: 100%;
       margin: 0;
@@ -23,7 +23,6 @@
       padding: 20px;
       box-sizing: border-box;
     }
-
     .holder {
       max-width: 900px;
       width: 100%;
@@ -31,20 +30,16 @@
       line-height: 1.6;
       font-size: 1.1rem;
     }
-
     .fade-target {
       opacity: 0;
       transition: opacity 1.5s ease;
     }
-
     .fade-in {
       opacity: 1;
     }
-
     .fade-out {
       opacity: 0;
     }
-
     form {
       display: flex;
       gap: 12px;
@@ -53,11 +48,9 @@
       justify-content: center;
       margin-top: 32px;
     }
-
     label {
       font-size: 1.1rem;
     }
-
     input[type="password"] {
       background: transparent;
       border: 0;
@@ -69,11 +62,9 @@
       outline: none;
       width: 260px;
     }
-
     input[type="password"]::placeholder {
       color: rgba(0, 255, 102, 0.25);
     }
-
     button {
       background: transparent;
       border: 1px solid var(--green);
@@ -84,11 +75,9 @@
       font-size: 1rem;
       border-radius: 6px;
     }
-
     button:active {
       transform: translateY(1px);
     }
-
     .msg {
       margin-top: 10px;
       height: 20px;
@@ -97,13 +86,11 @@
       opacity: 0.9;
       text-align: center;
     }
-
     .typing {
       white-space: pre-wrap;
       display: inline-block;
       position: relative;
     }
-
     .cursor {
       display: inline-block;
       width: 10px;
@@ -113,11 +100,9 @@
       animation: blink 0.9s step-end infinite;
       vertical-align: bottom;
     }
-
     @keyframes blink {
       50% { opacity: 0; }
     }
-
     @media (max-width: 600px) {
       html, body {
         flex-direction: column;
@@ -125,33 +110,27 @@
         justify-content: flex-start;
         padding: 16px;
       }
-
       .holder {
         font-size: 1rem;
         text-align: left;
       }
-
       form {
         flex-direction: column;
         gap: 16px;
         align-items: stretch;
       }
-
       input[type="password"] {
         width: 100%;
         font-size: 1rem;
       }
-
       button {
         width: 100%;
         font-size: 1rem;
         padding: 10px;
       }
-
       label {
         font-size: 1rem;
       }
-
       .msg {
         font-size: 0.9rem;
         height: auto;
@@ -169,11 +148,7 @@
       </video>
     </div>
 
-    <br>
-
     <p id="typeText" class="typing"></p><span id="cursor" class="cursor"></span>
-
-    <br>
 
     <form id="loginForm" autocomplete="off" novalidate>
       <label for="senha">senha:</label>
@@ -185,36 +160,17 @@
   </div>
 
   <script>
-    const SENHAS = {
-      scienutopia: "pagina2.html",
-      saphoria: "pagina3.html",
-      hariposa: "pagina4.html",
-      crokins: "pagina5.html",
-      agata: "pagina6.html",
-      camellia: "pagina7.html",
-      luz: "luz.html",
-      guardião: "guardiao.html",
-      guardiao: "guardiao.html",
-      praga: "praga.html",
-      transformados: "praga.html"
-    };
-
-    const form = document.getElementById("loginForm");
-    const input = document.getElementById("senha");
-    const msg = document.getElementById("msg");
-    const fadeBox = document.getElementById("fadeBox");
-    const typeText = document.getElementById("typeText");
-    const cursor = document.getElementById("cursor");
-
     const texto = `Sejam muito bem-vindos meus amigos.\n\nAgora que estamos reunidos acho importante dizer a vocês que, eu estarei semanalmente atualizando o site todas as segundas-feiras com novas informações da nossa missão por um futuro melhor em Scienutopia!\n\nHoje, dia 06/10, venho convida-los para uma nova etapa que se iniciará no dia 12. Fiquem ligados no site para mais atualizações. :)`;
 
     window.onload = () => {
-      fadeBox.classList.add("fade-in");
+      document.getElementById("fadeBox").classList.add("fade-in");
       digitarTexto(texto, 40);
     };
 
     function digitarTexto(texto, velocidade) {
       let i = 0;
+      const typeText = document.getElementById("typeText");
+      const cursor = document.getElementById("cursor");
       const intervalo = setInterval(() => {
         if (i < texto.length) {
           typeText.textContent += texto.charAt(i);
@@ -225,26 +181,9 @@
         }
       }, velocidade);
     }
-
-    form.addEventListener("submit", function(e) {
-      e.preventDefault();
-
-      const valNormalized = (input.value || "").trim().toLowerCase();
-
-      if (valNormalized in SENHAS) {
-        fadeBox.classList.remove("fade-in");
-        fadeBox.classList.add("fade-out");
-        setTimeout(() => {
-          window.location.href = SENHAS[valNormalized];
-        }, 1500);
-      } else {
-        msg.textContent = "Senha incorreta — tente novamente.";
-        input.value = "";
-        input.focus();
-        input.style.borderBottomColor = "#ff4d4d";
-        setTimeout(() => input.style.borderBottomColor = "", 400);
-      }
-    });
   </script>
+
+  <!-- Lógica de senha separada -->
+  <script src="senha.js"></script>
 </body>
 </html>
