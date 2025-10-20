@@ -13,7 +13,11 @@ const SENHAS = {
   lua: "lua.html",
   divindade: "divindade.html",
   corrupcao: "corrupcao.html",
-  corrupção: "corrupcao.html"
+  corrupção: "corrupcao.html",
+  jornal: "jornal.html",
+  mariposa: "mariposa.html",
+  telefone: "telefone.html",
+  amigo: "ele_esta_mentindo_descubra_a_verdade_na_pagina_inicial.html"
 };
 
 // Função pra remover acentos e normalizar texto
