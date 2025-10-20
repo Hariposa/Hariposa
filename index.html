@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Hariposa</title>
   <style>
-    /* teu CSS continua igual, não alterei nada */
     :root {
       --green: #00ff66;
       --bg: #000;
@@ -143,7 +142,7 @@
   <div class="holder fade-target" id="fadeBox">
     <div style="text-align: center; margin-bottom: 24px;">
       <video width="100%" controls>
-        <source src="https://file.garden/aNwyVGDbeFKgu1HW/V%C3%ADdeo%20Hariposa%20dia%2013.mp4" type="video/mp4">
+        <source src="https://file.garden/aNwyVGDbeFKgu1HW/V%C3%ADdeo%20Hariposa%202010.mp4?fbclid=IwY2xjawNjZIlleHRuA2FlbQIxMABicmlkETFJMFFORDBSR0NLclNMRVo2AR7bu9sz97ivRRqAcCwqT-yCOsChSdbYGo08D7Mg0QMgTpQFopU5luV3bnMTEQ_aem_GNpPV0z-j9_lzBkLTry3Hw" type="video/mp4">
         Seu navegador não suporta vídeo HTML5.
       </video>
     </div>
@@ -160,7 +159,7 @@
   </div>
 
   <script>
-    const texto = `Sejam muito bem-vindos meus amigos.\n\nAgora que estamos reunidos acho importante dizer a vocês que, eu estarei semanalmente atualizando o site todas as segundas-feiras com novas informações da nossa missão por um futuro melhor em Scienutopia!\n\nFiquem ligados no site para mais atualizações. :)`;
+    const texto = `Seja muito bem-vindo, meu amigo.\n\nAgora que estamos reunidos acho importante dizer que, eu estarei semanalmente atualizando o site todas as segundas-feiras com novas informações da nossa missão por um futuro melhor em Scienutopia!\n\nHoje, dia 20/10, vim atualiza-lo de que estamos finalmente próximos de nossa última missão. Fique atento para as próximas atualizações. :)`;
 
     window.onload = () => {
       document.getElementById("fadeBox").classList.add("fade-in");
@@ -173,19 +172,26 @@
       const cursor = document.getElementById("cursor");
       const intervalo = setInterval(() => {
         if (i < texto.length) {
-          typeText.textContent += texto.charAt(i);
+          typeText.textContent += texto[i];
           i++;
         } else {
           clearInterval(intervalo);
           cursor.remove();
+          transformarAmigoEmLink();
         }
       }, velocidade);
     }
+
+    function transformarAmigoEmLink() {
+      const typeText = document.getElementById("typeText");
+      const htmlFinal = typeText.innerHTML.replace(
+        /amigo/,
+        '<a href="desaparecido.html" style="color: inherit; text-decoration: none;">amigo</a>'
+      );
+      typeText.innerHTML = htmlFinal;
+    }
   </script>
 
-  <!-- Lógica de senha separada -->
   <script src="senha.js"></script>
 </body>
 </html>
-
-
