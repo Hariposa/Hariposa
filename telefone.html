@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Telefone</title>
+  <style>
+    :root {
+      --green: #00ff66;
+      --bg: #000;
+      --font: "Courier New", Courier, monospace;
+    }
+    html, body {
+      height: 100%;
+      margin: 0;
+      background: var(--bg);
+      color: var(--green);
+      font-family: var(--font);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+    .holder {
+      max-width: 900px;
+      width: 100%;
+      text-align: justify;
+      line-height: 1.6;
+      font-size: 1.1rem;
+    }
+    .fade-target {
+      opacity: 0;
+      transition: opacity 1.5s ease;
+    }
+    .fade-in {
+      opacity: 1;
+    }
+    .fade-out {
+      opacity: 0;
+    }
+    form {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 32px;
+    }
+    label {
+      font-size: 1.1rem;
+    }
+    input[type="text"] {
+      background: transparent;
+      border: 0;
+      border-bottom: 2px solid var(--green);
+      color: var(--green);
+      padding: 8px 10px;
+      font-size: 1.05rem;
+      font-family: var(--font);
+      outline: none;
+      width: 260px;
+    }
+    input[type="text"]::placeholder {
+      color: rgba(0, 255, 102, 0.25);
+    }
+    button {
+      background: transparent;
+      border: 1px solid var(--green);
+      color: var(--green);
+      padding: 8px 14px;
+      cursor: pointer;
+      font-family: var(--font);
+      font-size: 1rem;
+      border-radius: 6px;
+    }
+    button:active {
+      transform: translateY(1px);
+    }
+    .msg {
+      margin-top: 10px;
+      height: 20px;
+      font-size: 0.95rem;
+      color: var(--green);
+      opacity: 0.9;
+      text-align: center;
+    }
+    .typing {
+      white-space: pre-wrap;
+      display: inline-block;
+      position: relative;
+    }
+    .cursor {
+      display: inline-block;
+      width: 10px;
+      height: 1.1em;
+      background: var(--green);
+      margin-left: 2px;
+      animation: blink 0.9s step-end infinite;
+      vertical-align: bottom;
+    }
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+    .custom-player {
+      background-color: #000;
+      border: 1px solid var(--green);
+      border-radius: 6px;
+      padding: 16px;
+      display: inline-block;
+      font-family: var(--font);
+      color: var(--green);
+      text-align: center;
+    }
+    .custom-player button {
+      background: transparent;
+      border: 1px solid var(--green);
+      color: var(--green);
+      padding: 6px 12px;
+      font-family: var(--font);
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .custom-player input[type="range"] {
+      width: 100%;
+      accent-color: var(--green);
+      margin-top: 12px;
+    }
+    @media (max-width: 600px) {
+      html, body {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding: 16px;
+      }
+      .holder {
+        font-size: 1rem;
+        text-align: left;
+      }
+      form {
+        flex-direction: column;
+        gap: 16px;
+        align-items: stretch;
+      }
+      input[type="text"] {
+        width: 100%;
+        font-size: 1rem;
+      }
+      button {
+        width: 100%;
+        font-size: 1rem;
+        padding: 10px;
+      }
+      label {
+        font-size: 1rem;
+      }
+      .msg {
+        font-size: 0.9rem;
+        height: auto;
+        margin-top: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="holder fade-target" id="fadeBox">
+    <div style="text-align: center; margin-bottom: 24px;">
+        <br>
+      <img src="midia/tel.png" alt="Você pode me ouvir?" width="100%" />
+    </div>
+
+    <p id="typeText" class="typing"></p><span id="cursor" class="cursor"></span>
+
+    <form id="telForm" autocomplete="off" novalidate>
+      <label for="telefone">Digite um número de telefone:</label>
+      <input id="telefone" name="telefone" type="text" placeholder="Ex: 1234-5678" />
+      <button type="submit">Enviar</button>
+    </form>
+
+    <div class="msg" id="msg"></div>
+    <div id="audioContainer" style="margin-top: 20px; text-align: center;"></div>
+  </div>
+
+  <script>
+    const texto = `Parabéns! Parece que você encontrou o telefone.\n\n[...]\n\nVocê já sabe pra quem ligar.`;
+
+    function digitarTexto(texto, velocidade) {
+      let i = 0;
+      const typeText = document.getElementById("typeText");
+      const cursor = document.getElementById("cursor");
+      const intervalo = setInterval(() => {
+        if (i < texto.length) {
+          typeText.textContent += texto.charAt(i);
+          i++;
+        } else {
+          clearInterval(intervalo);
+          cursor.remove();
+        }
+      }, velocidade);
+    }
+
+    window.addEventListener("load", () => {
+      document.getElementById("fadeBox").classList.add("fade-in");
+      digitarTexto(texto, 40);
+    });
+  </script>
+
+  <script src="tel.js"></script>
+</body>
+</html>
