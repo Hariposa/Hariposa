@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Mariposa</title>
+  <style>
+    :root {
+      --green: #00ff66;
+      --bg: #000;
+      --font: "Courier New", Courier, monospace;
+    }
+
+    html, body {
+      height: 100%;
+      margin: 0;
+      background: var(--bg);
+      color: var(--green);
+      font-family: var(--font);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      max-width: 1000px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .ascii {
+      white-space: pre;
+      font-size: 0.85rem;
+      line-height: 1.1;
+      margin-bottom: 32px;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-top: 100px; /* ✅ espaçamento extra para descer o ASCII */
+    }
+
+    .message {
+      font-size: 1.1rem;
+      margin: 24px auto;
+      text-align: justify;
+      max-width: 700px;
+      width: 90%;
+    }
+
+    .back {
+      display: inline-block;
+      color: var(--green);
+      text-decoration: none;
+      border: 1px solid var(--green);
+      padding: 8px 14px;
+      border-radius: 6px;
+      font-family: var(--font);
+      font-size: 1rem;
+    }
+
+    .back:active {
+      transform: translateY(1px);
+    }
+
+    @media (max-width: 600px) {
+      html, body {
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 16px;
+      }
+
+      .ascii {
+        font-size: 0.75rem;
+        text-align: center;
+        padding-top: 60px;
+      }
+
+      .message {
+        font-size: 1rem;
+        text-align: justify;
+        width: 100%;
+      }
+
+      .back {
+        width: 100%;
+        text-align: center;
+        font-size: 1rem;
+        padding: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="ascii">
+    ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀  ⠀⢶⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢰⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀  ⠀⠀⠀⠸⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡞⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣀⣀⠀
+⢀⣾⣿⣿⣿⣿⣶⣶⣤⣤⣄⣀⠀⠀⠀⠀⠀⠀⠙⢄⡀⠀⠀⠀⢀⢀⠀⠀⠀⢀⡤⠊⠀⠀⠀⠀⠀⣀⣀⣠⣤⣶⣶⣾⣿⣿⣿⣿⣿⣿
+⢿⣿⣿⣿⣿⣿⣿⣿⡿⢿⣿⣿⣿⣷⣶⣤⣄⣀⠀⠀⠈⠑⠒⠢⣼⠿⣷⠒⠊⠁⠀⠀⣀⣤⠶⣶⠿⢿⣿⢾⡿⣿⣟⣿⣿⣿⣻⣿⣿⣿
+⠀⣻⣿⣿⣿⣿⣿⣿⡍⣿⣯⣯⣿⡾⠿⢿⣿⣿⣿⣶⣦⣄⡀⢈⣿⡿⣿⣄⡠⣴⣾⠿⢿⣿⣿⣿⣿⢝⣿⡟⣶⣥⡾⢿⣿⣿⣿⣿⣿⠻
+⠀⠸⣿⣿⣿⣿⣿⠿⣿⢼⣿⣹⣷⣾⣟⣿⣿⣯⣽⣿⡿⢿⣿⣿⣿⣷⣿⣿⣽⣛⣷⣿⣾⣿⣿⡿⡟⣿⣟⣿⣶⣿⣦⣿⡿⣿⣿⣿⠏⠀
+⠀⠀⢿⣿⣿⣿⢿⡆⢿⣆⣿⣷⢎⡏⢿⣿⣿⣿⣹⣿⠿⡏⣉⣿⣿⢿⢿⣿⣏⣹⣾⣿⣉⣿⣿⠇⣏⣏⣹⣿⣷⣿⣿⣿⣿⣿⣿⠇⠀⠀
+⠀⠀⠀⠉⠛⠛⠚⠛⠚⣛⡾⢛⣓⡻⠒⢒⠛⠛⠓⢛⣻⣏⣿⣿⣿⣿⣿⣻⣱⢍⠙⠛⡛⠻⣟⠛⠛⠛⢝⣻⣿⣟⠛⠛⠛⠋⠁⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⣠⣶⣿⣷⣗⣋⠵⢒⡨⡊⢄⣨⣶⣿⢞⣞⣾⣻⣿⣿⣿⣿⣦⢿⣮⡢⣌⣷⣌⡻⣷⣾⣟⣿⣻⣿⣿⣶⡀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠸⣍⢓⣿⣿⣿⣿⣶⣷⣨⣶⣫⢿⠗⣩⢫⣿⠏⢸⣽⣷⢯⡇⣿⣾⡙⣷⣼⠿⣿⡿⡾⣌⣻⣿⣿⣿⡿⣿⣿⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠙⠽⣿⣯⣿⣿⣿⣿⣿⣽⣮⣭⢟⣡⣻⠋⠀⠀⣿⣟⣿⠀⠘⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢿⣿⣿⣿⡿⠃⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⠻⢿⣿⣿⣿⣿⣿⣾⡿⠟⠀⠀⠀ ⠀⢿⣷⡿⠀⠀⠈⠛⠿⣿⣿⣿⣿⣿⣿⣿⠿⠟⠛⠉⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⡉⠉⠀⠀⠀⠀⠀  ⠀⠀⠸⣯⠇⠀⠀⠀⠀⠀⠀⠀⠉⣉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+    </div>
+
+    <div class="message">
+      Durante sua fase inicial, a pequena e sonhadora lagarta gasta todo o seu tempo e energia se preparando para um dia, enfim, se tornar uma bela mariposa. Ela acredita que, depois de sua transformação, ela finalmente será aquilo que sempre sonhou...<br><br>
+      Então, durante sua metamorfose a lagarta se isola do mundo, se trancando em um casulo e ficando presa até que tenha certeza de que sua transformação está completa. Então, ela emerge graciosa e orgulhosa de enfim ver o resultado de todo seu esforço e sacrifício...<br><br>
+      Porém, agora transformada, a mariposa não tem mais objetivos. Ela chegou ao fim de sua jornada, cujo o seu ultimo passo é a reprodução e então a morte. E a mariposa percebe que não pode mais voltar atrás, o tempo passou e os momentos que foram desperdiçados durante a sua metamorfose não vão voltar...<br><br>
+      A mariposa se desespera, se vendo em lugar que ela nunca imaginou que estaria, e então comete um erro que, por consequência, lhe faz perder as asas. Sozinha, envergonhada, com medo, com raiva e confusa, ela não pode mais voar e tudo que lhe resta é se esconder.
+    </div>
+
+    <a class="back" href="index.html">Voltar</a>
+  </div>
+</body>
+</html>
