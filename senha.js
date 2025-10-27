@@ -19,9 +19,9 @@ const SENHAS = {
   telefone: "telefone.html",
   amigo: "ele_esta_mentindo_descubra_a_verdade_na_pagina_inicial.html",
   ephir: "insira_a_senha_aqui.html",
+  phal: "phal.html",
 recomeco: "recomeco.html",
 recomeço: "recomeco.html",
-  phal: "phal.html",
   azariah: "azariah.html",
   alzira: "alzira.html"
 };
@@ -61,3 +61,4 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
