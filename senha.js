@@ -7,7 +7,6 @@ const SENHAS = {
   camellia: "pagina7.html",
   luz: "luz.html",
   guardiao: "guardiao.html",
-  guardião: "guardiao.html",
   praga: "praga.html",
   transformados: "praga.html",
   lua: "lua.html",
@@ -19,8 +18,8 @@ const SENHAS = {
   telefone: "telefone.html",
   amigo: "ele_esta_mentindo_descubra_a_verdade_na_pagina_inicial.html",
   ephir: "insira_a_senha_aqui.html",
-recomeco: "recomeco.html",
-recomeço: "recomeco.html",
+  recomeco: "recomeco.html",
+  recomeço: "recomeco.html",
   azariah: "azariah.html",
   alzira: "alzira.html",
   phal: "phal.html"
@@ -61,5 +60,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
 
 
