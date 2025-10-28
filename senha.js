@@ -7,6 +7,7 @@ const SENHAS = {
   camellia: "pagina7.html",
   luz: "luz.html",
   guardiao: "guardiao.html",
+  guardião: "guardiao.html",
   praga: "praga.html",
   transformados: "praga.html",
   lua: "lua.html",
@@ -20,16 +21,23 @@ const SENHAS = {
   ephir: "insira_a_senha_aqui.html",
   recomeco: "recomeco.html",
   recomeço: "recomeco.html",
+  phal: "phal.html",
   azariah: "azariah.html",
   alzira: "alzira.html",
-  phal: "phal.html"
+  coordenadas: "coordenadas.html",
+  "-48.1924,-178.4489": "voce_o_encontrou.html", // senha especial
 };
 
 // Função pra remover acentos e normalizar texto
 function normalizarTexto(texto) {
+  const apenasNumerosEPontos = /^[-\d.,\s]+$/;
+  if (apenasNumerosEPontos.test(texto)) {
+    return texto.trim();
+  }
+
   return texto
-    .normalize("NFD") // separa acentos
-    .replace(/[\u0300-\u036f]/g, "") // remove acentos
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
     .trim()
     .toLowerCase();
 }
@@ -60,6 +68,3 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
-
-
-
