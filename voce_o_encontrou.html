@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Parece que você finalmente encontrou... Eles?</title>
+  <style>
+    :root {
+      --green: #00ff66;
+      --bg: #000;
+      --font: "Courier New", Courier, monospace;
+    }
+
+    html, body {
+      height: 100%;
+      margin: 0;
+      background: var(--bg);
+      color: var(--green);
+      font-family: var(--font);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      max-width: 1000px;
+      width: 100%;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .ascii img {
+      width: 380px;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .message {
+      font-size: 1.1rem;
+      margin: 24px 0;
+      text-align: justify;
+      max-width: 700px;
+    }
+
+    .back {
+      display: inline-block;
+      color: var(--green);
+      text-decoration: none;
+      border: 1px solid var(--green);
+      padding: 8px 14px;
+      border-radius: 6px;
+      font-family: var(--font);
+      font-size: 1rem;
+    }
+
+    .back:active {
+      transform: translateY(1px);
+    }
+
+    .bug-text {
+      font-weight: bold;
+      color: var(--green);
+      animation: glitch 0.1s infinite;
+    }
+
+    @keyframes glitch {
+      0% { opacity: 1; }
+      50% { opacity: 0.4; }
+      100% { opacity: 1; }
+    }
+
+    @media (max-width: 600px) {
+      html, body {
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 16px;
+      }
+
+      .ascii img {
+        width: 260px;
+      }
+
+      .message {
+        font-size: 1rem;
+        text-align: left;
+      }
+
+      .back {
+        width: 100%;
+        text-align: center;
+        font-size: 1rem;
+        padding: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="ascii">
+      <img src="midia/eu não sei como mas eles conseguiram me achar.png" alt="eu não sei como, mas eles conseguiram me achar." />
+    </div>
+
+    <div class="message">
+      Você esperou e então, finalmente, recebeu as tão aguardadas coordenadas.
+Você já sabia que essa seria uma missão perigosa, mas depois de tudo que passou e viu acontecer neste mês, não seria agora que você iria desistir.
+
+Reunindo toda a sua coragem e contando apenas com suas próprias luzes para iluminar o caminho, você adentra a floresta, tendo apenas o celular para guiá-lo pelas coordenadas que pareciam não levar a lugar algum.
+
+Justo quando começava a pensar que aquele podia ser o lugar errado, você escuta passos leves se aproximando, como se alguém viesse com curiosidade. Seu corpo estremece em nervosismo e, ao se virar, você vê diante de seus olhos a causa daqueles sons...
+
+“Isso foi uma emboscada? Por que há tantas pragas aqui? E... por que todos eles parecem tão calmos e curiosos?...”
+
+Acho que está na hora de uma boa conversa entre velhos amigos...
+    </div>
+
+    <a class="back" href="index.html">Voltar</a>
+  </div>
+
+</body>
+</html>
