@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ESPERA, O QUÊ?!</title>
+  <style>
+    :root {
+      --green: #00ff66;
+      --bg: #000;
+      --font: "Courier New", Courier, monospace;
+    }
+
+    html, body {
+      height: 100%;
+      margin: 0;
+      background: var(--bg);
+      color: var(--green);
+      font-family: var(--font);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      max-width: 800px;
+      padding: 20px;
+    }
+
+    .message {
+      font-size: 1.1rem;
+      margin-bottom: 24px;
+      max-width: 700px;
+      text-align: center;
+    }
+
+    .back {
+      display: inline-block;
+      color: var(--green);
+      text-decoration: none;
+      border: 1px solid var(--green);
+      padding: 10px 18px;
+      border-radius: 6px;
+      font-family: var(--font);
+      font-size: 1rem;
+      margin-top: 16px;
+    }
+
+    .back:active {
+      transform: translateY(1px);
+    }
+
+    @media (max-width: 600px) {
+      html, body {
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 16px;
+      }
+
+      .message {
+        font-size: 1rem;
+        text-align: center;
+      }
+
+      .back {
+        width: 100%;
+        text-align: center;
+        font-size: 1rem;
+        padding: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="message">
+      Meus parabéns! Você atingiu a maior pontuação do evento! Admito que estou beeem surpreso... Como você conseguiu fazer isso?! De qualquer forma, devo dizer que estou orgulhoso. :D
+    </div>
+    <a class="back" href="index.html">Voltar</a>
+  </div>
+</body>
+</html>
