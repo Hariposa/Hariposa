@@ -24,6 +24,8 @@ const SENHAS = {
   phal: "phal.html",
   azariah: "azariah.html",
   alzira: "alzira.html",
+  cross: "cross.html",
+  verdade: "verdade.html",
   coordenadas: "coordenadas.html",
   "-48.1924,-178.4489": "voce_o_encontrou.html", // senha especial
 };
