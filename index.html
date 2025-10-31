@@ -1,3 +1,5 @@
+<!-- TÁ VENDO OS MEUS CÓDIGOS PORQUÊ, HEIN? ,':/ -->
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -25,9 +27,23 @@
     .holder {
       max-width: 900px;
       width: 100%;
-      text-align: justify;
+      text-align: center;
       line-height: 1.6;
       font-size: 1.1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .image-wrapper {
+      margin-bottom: 24px;
+    }
+    .image-wrapper img {
+      max-width: 600px;
+      width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
     }
     .fade-target {
       opacity: 0;
@@ -89,6 +105,7 @@
       white-space: pre-wrap;
       display: inline-block;
       position: relative;
+      text-align: justify;
     }
     .cursor {
       display: inline-block;
@@ -140,17 +157,14 @@
 </head>
 <body>
   <div class="holder fade-target" id="fadeBox">
-    <div style="text-align: center; margin-bottom: 24px;">
-      <video width="100%" controls>
-        <source src="https://file.garden/aNwyVGDbeFKgu1HW/O%20fim.mp4" type="video/mp4">
-        Seu navegador não suporta vídeo HTML5.
-      </video>
+    <div class="image-wrapper">
+      <img src="midia/caiu.png" alt="Imagem derrubada" />
     </div>
 
     <p id="typeText" class="typing"></p><span id="cursor" class="cursor"></span>
 
     <form id="loginForm" autocomplete="off" novalidate>
-      <label for="senha">senha:</label>
+      <label for="senha">Senha:</label>
       <input id="senha" name="senha" type="password" placeholder="Digite a senha" />
       <button type="submit">Entrar</button>
     </form>
@@ -159,7 +173,7 @@
   </div>
 
   <script>
-    const texto = `Esta será provavelmente a última vez em que nos veremos, meu amigo.\n\nEu jamais teria chego até aqui sem a ajuda de todos vocês.\n\nMuito obrigado. \n\n :)`;
+    const texto = `[Mensagem automática do Departamento de Desenvolvimento de Sistemas de Scienutopia]\n\nViemos formalmente através desta mensagem para alerta-los a respeito do site intitulado como "Hariposa". Estamos trabalhando juntamente a Guarda Real de Scienutopia para tirar o acesso do site para domínio público, tendo em vista que seu conteúdo viola as leis estaduais, assim como as diretrizes de um site comum. Também gostaríamos de informar que nossa equipe ainda está trabalhando para conseguir derrubar o campo de senhas fornecidas pelo Hacker, que dificultou nosso acesso ao código delas através de um programa de segurança único. Estaremos utilizando o site para a coleta de provas contra o indivíduo e para o estudo de sua curiosa metodologia de programação. Contudo, novamente, nos desculpamos pelo infortúnio, porém garantimos que estamos trabalhando para um futuro melhor de Scienutopia.`;
 
     window.onload = () => {
       document.getElementById("fadeBox").classList.add("fade-in");
@@ -195,5 +209,3 @@
   <script src="senha.js"></script>
 </body>
 </html>
-
-
